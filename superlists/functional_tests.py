@@ -52,11 +52,12 @@ class NewVisitorTest(unittest.TestCase):
 
         # The page updates again, and now shows both items in her list
 
-        # Edith wonders whether the site will remember her list. Then she sees
-        # that the site has generated a unique URL for her -- there is some
+        # Marcel wonders whether the site will remember his list.
+        # Then hhe sees that the site has generated a unique URL
+        # for his list -- there is some
         # explanatory text to that effect.
 
-        # She visits that URL - her to-do list is still there
+        # He visits that URL - his to-do list is still there
 
         # Satisfied. Quits the browser.
 
