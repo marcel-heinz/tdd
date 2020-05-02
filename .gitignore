@@ -1,7 +1,7 @@
 geckodriver.log
 superlists/db.sqlite3
 venv_superlists/*
-
+.idea
 
 # Created by https://www.gitignore.io/api/django,python,pycharm
 # Edit at https://www.gitignore.io/?templates=django,python,pycharm
