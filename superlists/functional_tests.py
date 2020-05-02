@@ -1,6 +1,8 @@
 """
 Functional Test corresponds to the user story.
 This file contains unittests for the functional part.
+
+NewVisitorTest tests the behaviour of the website.
 """
 
 from selenium import webdriver
