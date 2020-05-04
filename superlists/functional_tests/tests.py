@@ -42,9 +42,9 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
 
         # He notices the page title and header mention to-do list
-        self.assertIn('To-Do lists', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do list', header_text)
+        self.assertIn('To-Do App', self.browser.title)
+        header_text = self.browser.find_element_by_id('headline').text
+        self.assertEqual('Start your To-Do list', header_text)
 
         # He is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -84,6 +84,7 @@ class NewVisitorTest(LiveServerTestCase):
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Marcel starts a new to-do list
         self.browser.get(self.live_server_url)
+
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy peacock feathers')
         inputbox.send_keys(Keys.ENTER)
@@ -92,6 +93,9 @@ class NewVisitorTest(LiveServerTestCase):
         # He notices that his list has a unique URL
         marcel_list_url = self.browser.current_url
         self.assertRegex(marcel_list_url, '/lists/.+')
+        self.assertIn('To-Do App', self.browser.title)
+        header = self.browser.find_element_by_id('headline').text
+        self.assertEqual('Your To-Do List', header)
 
         # Now a new user, Maria, comes along to the site.
         ## We use a new browser session to make sure that no
