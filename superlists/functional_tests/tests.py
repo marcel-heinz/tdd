@@ -44,7 +44,7 @@ class NewVisitorTest(LiveServerTestCase):
         # He notices the page title and header mention to-do list
         self.assertIn('To-Do lists', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do lists', header_text)
+        self.assertIn('To-Do list', header_text)
 
         # He is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -98,6 +98,7 @@ class NewVisitorTest(LiveServerTestCase):
         ## information of Marcel is coming through from cookies etc.
 
         self.browser.quit()
+        self.browser = webdriver.Firefox()
 
         self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
